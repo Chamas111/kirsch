@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+  .title {
+    font-size: 18px;
+  }
+  .updateLagerung {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+  }
+  .contentupdateLagerung {
+    margin-top: 20%;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+  form {
+    align-items: center;
+    justify-content: center;
+    margin-right: 20%;
+  }
+}

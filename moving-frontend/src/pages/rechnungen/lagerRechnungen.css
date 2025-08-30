@@ -1,0 +1,52 @@
+/* Make table scrollable on small devices */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Turn table into cards for mobile */
+@media (max-width: 576px) {
+  .table-responsive table,
+  .table-responsive thead,
+  .table-responsive tbody,
+  .table-responsive th,
+  .table-responsive td,
+  .table-responsive tr {
+    display: block;
+    width: 100vw;
+    font-weight: bolder;
+  }
+
+  /* Hide table headers */
+  .table-responsive thead {
+    display: none;
+  }
+
+  /* Each row becomes a card */
+  .table-responsive tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .table-responsive td {
+    text-align: left;
+    padding: 6px 8px;
+    position: relative;
+  }
+
+  .table-responsive td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+
+    color: #555;
+  }
+  .rechnungsbutton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,84 @@
+.menu {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 13.7%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding-top: 6%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu .item {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+}
+
+.menu .item .title {
+  font-size: 14px;
+  font-weight: 200;
+  color: black;
+}
+
+.menu .item .listItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 15px;
+  border-radius: 5px;
+}
+.menu .item .listItem:hover {
+  background-color: rgb(161, 157, 157);
+  color: rgb(71, 15, 15);
+}
+.menu .item img {
+  width: 26px;
+  height: 26px;
+}
+.menu .item .listItemTitle {
+  margin-top: 5px;
+}
+
+/* Burger Button */
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  display: none; /* Nur Mobile sichtbar */
+  font-size: 14px;
+}
+
+/* Mobile: Menü verstecken */
+@media (max-width: 768px) {
+  .menu {
+    transform: translateX(-100%);
+
+    z-index: 1001;
+    width: 45%;
+  }
+
+  .menu.open {
+    transform: translateX(0);
+  }
+  /* Desktop: Menü immer sichtbar */
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    left: 60%;
+    transform: translateX(-50%);
+    position: fixed;
+  }
+}

@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+  .title {
+    font-size: 18px;
+    margin-top: 5%;
+  }
+  .newAusgaben {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+    margin-bottom: 5%;
+  }
+  .contentAusgaben {
+    margin-top: 20%;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+  .ausgabenbutton {
+    padding: 5%;
+  }
+}

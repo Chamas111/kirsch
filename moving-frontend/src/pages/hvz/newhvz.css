@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .title {
+    font-size: 18px;
+  }
+  .newHvz {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+  }
+  .content {
+    margin-top: 20%;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+}

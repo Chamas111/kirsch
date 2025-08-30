@@ -1,0 +1,19 @@
+.login-container {
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered box */
+.login-box {
+  background-color: #eaeaea;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+}

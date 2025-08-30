@@ -1,0 +1,61 @@
+/* Wrapper */
+.event-details {
+  font-size: 1rem;
+  margin-left: 20px;
+}
+
+/* Logo */
+.logo-img {
+  max-width: 120px;
+  width: 30%;
+  height: auto;
+  border-radius: 50%;
+}
+.carddetail {
+  width: 100%;
+}
+.cardheader {
+  padding: 20;
+  font-size: "24px";
+  color: "#000";
+}
+
+/* Arrows */
+.arrows {
+  text-align: center;
+}
+
+.arrow-img {
+  max-width: 250px;
+  width: 60%;
+  height: auto;
+}
+
+/* Info section */
+.infos p {
+  margin-bottom: 0.3rem;
+}
+.cardwidth {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* ✅ Responsive tweaks */
+@media (max-width: 768px) {
+  .event-details {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .logo-img {
+    max-width: 80px;
+  }
+
+  .arrow-img {
+    max-width: 50px;
+  }
+
+  .carddetail {
+    width: 100%;
+  }
+}

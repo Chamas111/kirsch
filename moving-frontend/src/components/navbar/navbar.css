@@ -1,0 +1,22 @@
+.navbar {
+  background: linear-gradient(to right, #690e0e, #690e0e);
+  z-index: 1000;
+}
+
+.navbar-brand img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+/* Override Bootstrap search box a bit */
+.navbar .form-control {
+  max-width: 220px;
+}
+
+/* On mobile: make search box full width */
+@media (max-width: 768px) {
+  .navbar .form-control {
+    max-width: 100%;
+  }
+}

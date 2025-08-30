@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .title {
+    font-size: 18px;
+  }
+  .updateAuftrag {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+  }
+  .contentUpdateAuftrag {
+    margin-top: 5%;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+}

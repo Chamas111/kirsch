@@ -1,0 +1,69 @@
+/* Make table scrollable on small devices */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Turn table into cards for mobile */
+@media (max-width: 576px) {
+  .table-responsive table,
+  .table-responsive thead,
+  .table-responsive tbody,
+  .table-responsive th,
+  .table-responsive td,
+  .table-responsive tr {
+    display: block;
+    width: 100%; /* ✅ safer than 100vw */
+    font-weight: bolder;
+  }
+
+  /* Hide table headers */
+  .table-responsive thead {
+    display: none;
+  }
+
+  /* Each row becomes a card */
+  .table-responsive tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+
+    background: #080808;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .table-responsive td {
+    text-align: left;
+
+    position: relative;
+  }
+
+  .table-responsive td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    color: #555;
+    margin-bottom: 2px;
+  }
+
+  /* HVZ button full width on mobile */
+  .hvzbutton {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  /* Tabs stack on small devices */
+  .tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tabs button {
+    width: 100%;
+  }
+  .hvzsize {
+    font-size: 12px;
+  }
+}

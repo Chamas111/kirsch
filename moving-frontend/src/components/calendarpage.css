@@ -1,0 +1,23 @@
+/* Calendar wrapper fills viewport height minus navbar (e.g. 80px) */
+.calendar-wrapper {
+  height: calc(100vh - 80px);
+  margin: 0 10px; /* small horizontal margin */
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .calendar-wrapper {
+    height: calc(100vh - 5px); /* slightly less margin on mobile */
+    margin: 10px;
+  }
+
+  .rbc-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .rbc-event {
+    font-size: 12px;
+  }
+}

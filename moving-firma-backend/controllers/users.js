@@ -31,19 +31,25 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  console.log("Login request body:", req.body);
   const userDocument = await User.findOne({ email: req.body.email });
-  console.log("USER", userDocument.password, req.body.password);
+
   if (!userDocument) {
-    res.status(400).json({ message: "Invalid Login Attempt" });
+    console.log("Email not found");
+    res.status(400).json({ field: "email", message: "E-mail is not found" });
+    console.log("USER", userDocument.password, req.body.password);
   } else {
     try {
       const isPasswordValid = await bcrypt.compare(
         req.body.password,
         userDocument.password
       );
+      console.log("Password valid:", isPasswordValid);
       if (!isPasswordValid) {
-        res.status(400).json({ message: "Invalid Password Attempt" });
-        return res.status(400).json({ message: "Invalid Password Attempt" });
+        console.log("Invalid password");
+        return res
+          .status(400)
+          .json({ field: "password", message: "Invalid password!" });
       } else {
         const payload = {
           _id: userDocument._id,

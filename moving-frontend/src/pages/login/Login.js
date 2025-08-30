@@ -7,10 +7,12 @@ import axios from "../../axiosinstance";
 
 function Login({ setIsLoggedin }) {
   const navigate = useNavigate();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +21,7 @@ function Login({ setIsLoggedin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrors({});
     axios
       .post("/auth/login", user, { withCredentials: true })
       .then((res) => {
@@ -27,7 +30,24 @@ function Login({ setIsLoggedin }) {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log("🔥 FULL ERROR:", err.response?.data);
+        const error = err.response?.data;
+        if (error?.field) {
+          // field-specific error
+          setErrors((prev) => ({ ...prev, [error.field]: error.message }));
+        } else if (error?.message) {
+          // general error
+          // You can try to map "Invalid Password Attempt" to password field
+          if (error.message.toLowerCase().includes("password")) {
+            setErrors((prev) => ({ ...prev, password: error.message }));
+          } else if (error.message.toLowerCase().includes("email")) {
+            setErrors((prev) => ({ ...prev, email: error.message }));
+          } else {
+            setErrors({ general: error.message });
+          }
+        } else {
+          setErrors({ general: "Login failed ❌" });
+        }
       });
   };
   return (
@@ -52,6 +72,7 @@ function Login({ setIsLoggedin }) {
               value={user.email}
               onChange={handleChange}
             />
+            {errors.email && <p className="error">{errors.email}</p>}
           </div>
 
           <div className="form-group mb-3">
@@ -66,8 +87,11 @@ function Login({ setIsLoggedin }) {
               value={user.password}
               onChange={handleChange}
             />
+            {errors.password && <p className="error">{errors.password}</p>}
           </div>
-
+          {errors.general && (
+            <p className="error text-center">{errors.general}</p>
+          )}
           <button type="submit" className="btn btn-info w-100">
             Submit
           </button>

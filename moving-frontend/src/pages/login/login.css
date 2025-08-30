@@ -17,3 +17,11 @@
   width: 400px;
   max-width: 90%;
 }
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 3px;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+}

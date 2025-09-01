@@ -30,6 +30,9 @@ app.use("/api/invoices", invoices);
 
 app.use("/auth", authRouter);
 
+app.get("/", (req, res) => {
+  res.send("✅ Backend läuft");
+});
 connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);

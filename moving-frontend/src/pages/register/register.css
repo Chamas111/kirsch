@@ -16,3 +16,21 @@
   width: 400px;
   max-width: 90%;
 }
+
+@media (max-width: 768px) {
+  .register img {
+    height: 100px !important;
+    width: 100px !important;
+  }
+  .register form {
+    margin: 10%;
+  }
+  .register-box {
+    background-color: #eaeaea;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    max-width: 90%;
+  }
+}

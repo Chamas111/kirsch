@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "../axiosinstance";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./searchResult.css";
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -59,16 +60,28 @@ function SearchResults() {
   }, []);
 
   // Handle X button from external input
+  const location = useLocation();
   useEffect(() => {
     const handleClear = () => {
-      navigate(-1);
+      if (location.state?.from) {
+        navigate(location.state.from); // go back to previous page
+      } else {
+        navigate("/"); // fallback if user entered URL manually
+      }
     };
 
     if (typeof window.onSearchClear === "function") {
       window.onSearchClear(handleClear);
     }
-  }, [navigate]);
+  }, [navigate, location]);
 
+  const handleClearSearch = () => {
+    if (location.state?.from) {
+      navigate(location.state.from); // back to previous page
+    } else {
+      navigate("/"); // fallback if user entered /search manually
+    }
+  };
   // === RENDER HELPERS ===
 
   function useMediaQuery(query) {
@@ -212,7 +225,16 @@ function SearchResults() {
 
   return (
     <div className="search-results pt-5 mt-5">
-      <h2>Search Results for "{query}"</h2>
+      <h2>
+        Search Results for "{query}"{" "}
+        <button
+          onClick={handleClearSearch}
+          style={{ marginLeft: "10px" }}
+          className="btn btn-danger"
+        >
+          Zurück
+        </button>
+      </h2>
 
       {Object.entries(results).map(([key, data]) =>
         data?.length > 0 ? (

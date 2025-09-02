@@ -59,6 +59,7 @@ function Login({ setIsLoggedin }) {
           style={{ width: "150px", height: "150px" }}
           className="rounded mx-auto d-block rounded-circle"
         />
+
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="email" className="text-info">

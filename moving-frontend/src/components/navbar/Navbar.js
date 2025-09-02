@@ -33,7 +33,11 @@ function Navbar({ isLoggedin, setIsLoggedin }) {
   const handleSearch = (e) => {
     e.preventDefault();
     if (!query.trim()) return;
-    navigate(`/search?query=${encodeURIComponent(query)}`);
+
+    // Navigate to /search AND pass current page as "from"
+    navigate(`/search?query=${encodeURIComponent(query)}`, {
+      state: { from: location.pathname + location.search },
+    });
   };
 
   const handleLogout = () => {

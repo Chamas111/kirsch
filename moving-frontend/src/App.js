@@ -59,9 +59,9 @@ const Layout = ({ isLoggedin, setIsLoggedin }) => {
         </div>
 
         <div
-          className={`contentContainer p-2 
+          className={`contentContainer
         ${isHvzPage ? " " : ""} 
-        ${isHomePage ? "contentContainerHome p-2" : ""} 
+        ${isHomePage ? "contentContainerHome" : ""} 
        
         ${!isHvzPage && !isHomePage ? "default-class" : ""}
       `}

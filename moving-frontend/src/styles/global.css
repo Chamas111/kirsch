@@ -48,8 +48,8 @@ a {
 @media (max-width: 768px) {
   html,
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow-x: hidden; /* verhindert horizontales Scrollen */
     width: 100%;
     font-size: 12px;
@@ -67,42 +67,37 @@ a {
     padding: 0; /* kein Innenabstand */
   }
 
-  .container {
-    display: flex;
-    flex: 1;
-    margin: 0 !important; /* überschreibt eventuelle Abstände */
-    padding: 0 !important; /* überschreibt eventuelle Abstände */
-    width: 100% !important; /* volle Breite */
-    max-width: 100% !important;
-  }
-  .contentContainer {
-    flex: 1;
-
-    margin: -10px;
-  }
-
   .hvzcontainer {
     flex: 1;
     padding: 10px 20px;
     display: flex;
   }
 
-  .contentContainerHome {
-    flex: 1;
-    padding: 5px 20px;
-    margin: -10%;
-  }
-  .menuContainer {
-    width: 60px; /* schmal im Mobile */
-    padding: 0 !important; /* kein extra Innenabstand */
-    margin: 0 !important; /* kein Außenabstand */
+  /* Container-Layout */
+  .container {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
-  .contentContainer {
-    flex: 1;
-    margin: 0 !important; /* weißen Rand entfernen */
-    padding: 10px; /* kleiner, gleichmäßiger Abstand */
-    width: 100% !important; /* volle Breite */
-    box-sizing: border-box; /* Padding wird eingerechnet */
+  .menuContainer {
+    width: 0px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contentContainer,
+  .contentContainerHome {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    margin: 0;
+    padding: 0;
+    width: auto !important;
+    box-sizing: border-box;
+    min-width: 0;
   }
 }
